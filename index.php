@@ -46,7 +46,7 @@ require_once('Prices.php');
         <!-- main -->
         <div class="flex-grow-1 w-100">
             <!-- navbar -->
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
                 <div class="container-fluid my-2">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search Product" aria-label="Search" size="30">
