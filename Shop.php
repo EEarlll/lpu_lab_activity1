@@ -1,7 +1,3 @@
-<?php
-echo "";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +5,7 @@ echo "";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earlll</title>
+    <script src="index.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
@@ -17,7 +14,7 @@ echo "";
     <main class="d-flex">
         <div class="p-3 text-bg-dark sticky-top vh-100" style="width: 280px;">
             <a href="/" class="d-flex align-items-center mb-3 text-white text-decoration-none">
-                <h1 class="mx-auto" style="padding: 3rem 0rem 7rem 0rem;">Sidebar</h1>
+                <h1 class="mx-auto" style="padding: 3rem 0rem 7rem 0rem;">Earl POS</h1>
             </a>
             <ul class="nav flex-column mb-auto">
                 <li>
@@ -36,7 +33,7 @@ echo "";
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white text-center mb-4">
+                    <a href="Cart.php" class="nav-link text-white text-center mb-4">
                         Cart
                     </a>
                 </li>
@@ -70,15 +67,16 @@ echo "";
             </div>
             <div class="row  mx-auto">
                 <?php
+                require_once('Prices.php');
                 for ($i = 1; $i < 21; $i++) {
                     echo "
                         <div class='col mb-4'>
                             <div class='card' style='width: 18rem;'>
                                 <img src='Images/Dress/$i.jpg' class='card-img-top' alt='...' height='200'>
                                 <div class='card-body'>
-                                    <h5 class='card-title text-center'>Card title</h5>
-                                    <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href='#' class='btn btn-primary'>Add to cart</a>
+                                <h5 class='card-title text-center'>Dress $i</h5>
+                                <p class='card-text fs-5 text-center'>₱{$Dress_prices[$i]}</p>
+                                <button type='button' class='btn btn-primary w-100'>Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -86,8 +84,6 @@ echo "";
                 }
                 ?>
             </div>
-
-
             <!-- footer -->
             <div class="container">
                 <footer class="d-flex  justify-content-between align-items-center py-3 my-4">

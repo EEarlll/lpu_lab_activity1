@@ -1,3 +1,6 @@
+<?php
+require_once('Prices.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +17,7 @@
         <!-- sidebar -->
         <div class="p-3 text-bg-dark sticky-top vh-100" style="width: 280px;">
             <a href="/" class="d-flex align-items-center mb-3 text-white text-decoration-none">
-                <h1 class="mx-auto" style="padding: 3rem 0rem 7rem 0rem;">Sidebar</h1>
+                <h1 class="mx-auto" style="padding: 3rem 0rem 7rem 0rem;">Earl POS</h1>
             </a>
             <ul class="nav flex-column mb-auto">
                 <li class="">
@@ -33,7 +36,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white text-center mb-4">
+                    <a href="Cart.php" class="nav-link text-white text-center mb-4">
                         Cart
                     </a>
                 </li>
@@ -65,35 +68,35 @@
                         <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="..." height="800">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="fw-bold">Dress</h1>
-                            <p>Some representative placeholder content for the first slide.</p>
+                            <p>Discover the latest trends in fashion.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2157&q=80" class="d-block w-100" alt="..." height="800">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="fw-bold">Drinks</h1>
-                            <p>Some representative placeholder content for the second slide.</p>
+                            <p>Quench your thirst with our wide selection of delicious beverages.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="..." height="800">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="fw-bold">Foods</h1>
-                            <p>Some representative placeholder content for the third slide.</p>
+                            <p>Explore our mouthwatering range of culinary delights.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="https://images.unsplash.com/photo-1532431967313-f89e1b92f8f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="..." height="800">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="fw-bold">Kitchenwares</h1>
-                            <p>Some representative placeholder content for the third slide.</p>
+                            <p>Upgrade your kitchen with our durable and stylish kitchenware products.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="https://images.unsplash.com/photo-1557827983-012eb6ea8dc1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" class="d-block w-100" alt="..." height="800">
                         <div class="carousel-caption d-none d-md-block">
                             <h1 class="fw-bold">Perfume</h1>
-                            <p>Some representative placeholder content for the third slide.</p>
+                            p>Find your signature scent from our exquisite collection of perfumes.</p>
                         </div>
                     </div>
                 </div>
@@ -108,6 +111,7 @@
             </div>
             <!-- list and cards -->
             <div>
+                <!-- Product tabs -->
                 <h1 class="text-center my-5 pt-5">New Arrival</h1>
                 <ul class="nav d-flex gap-5 justify-content-center align-items-center mb-4" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -126,6 +130,7 @@
                         <button class="nav-link" id="Perfume-tab" data-bs-toggle="tab" data-bs-target="#Perfume-tab-pane" type="button" role="tab" aria-controls="Perfume-tab-pane" aria-selected="false">Perfume</button>
                     </li>
                 </ul>
+                <!-- Product cards -->
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="Dress-pane" role="tabpanel" aria-labelledby="Dress" tabindex="0">
                         <div class="row container mx-auto">
@@ -136,9 +141,9 @@
                                     <div class='card' style='width: 18rem;'>
                                         <img src='Images/Dress/$i.jpg' class='card-img-top' alt='...' height='200'>
                                         <div class='card-body'>
-                                            <h5 class='card-title text-center'>Card title</h5>
-                                            <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href='#' class='btn btn-primary'>Add to cart</a>
+                                            <h5 class='card-title text-center'>Dress $i</h5>
+                                            <p class='card-text fs-5 text-center'>₱{$Dress_prices[$i]}</p>
+                                            <a href='#' class='btn btn-primary d-flex justify-content-center align-items-center'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -156,9 +161,9 @@
                                     <div class='card' style='width: 18rem;'>
                                         <img src='Images/Drinks/$i.jpg' class='card-img-top' alt='...' height='200'>
                                         <div class='card-body'>
-                                            <h5 class='card-title text-center'>Card title</h5>
-                                            <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href='#' class='btn btn-primary'>Add to cart</a>
+                                            <h5 class='card-title text-center'>Drink $i</h5>
+                                            <p class='card-text fs-5 text-center'>₱{$Drinks_prices[$i]}</p>
+                                            <a href='#' class='btn btn-primary d-flex justify-content-center align-items-center'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -176,9 +181,9 @@
                                     <div class='card' style='width: 18rem;'>
                                         <img src='Images/Foods/$i.jpg' class='card-img-top' alt='...' height='200'>
                                         <div class='card-body'>
-                                            <h5 class='card-title text-center'>Card title</h5>
-                                            <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href='#' class='btn btn-primary'>Add to cart</a>
+                                            <h5 class='card-title text-center'>Foods $i</h5>
+                                            <p class='card-text fs-5 text-center'>₱{$Foods_prices[$i]}</p>
+                                            <a href='#' class='btn btn-primary d-flex justify-content-center align-items-center'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -196,9 +201,9 @@
                                     <div class='card' style='width: 18rem;'>
                                         <img src='Images/Kitchenwares/$i.jpg' class='card-img-top' alt='...' height='200'>
                                         <div class='card-body'>
-                                            <h5 class='card-title text-center'>Card title</h5>
-                                            <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href='#' class='btn btn-primary'>Add to cart</a>
+                                            <h5 class='card-title text-center'>Kitchenware $i</h5>
+                                            <p class='card-text fs-5 text-center'>₱{$Kitchenwares_prices[$i]}</p>
+                                            <a href='#' class='btn btn-primary d-flex justify-content-center align-items-center'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -216,9 +221,9 @@
                                     <div class='card' style='width: 18rem;'>
                                         <img src='Images/Perfume/$i.jpg' class='card-img-top' alt='...' height='200'>
                                         <div class='card-body'>
-                                            <h5 class='card-title text-center'>Card title</h5>
-                                            <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href='#' class='btn btn-primary'>Add to cart</a>
+                                            <h5 class='card-title text-center'>Perfume $i</h5>
+                                            <p class='card-text fs-5 text-center'>₱{$Perfume_prices[$i]}</p>
+                                            <a href='#' class='btn btn-primary d-flex justify-content-center align-items-center'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -263,11 +268,7 @@
                 <footer class="d-flex  justify-content-between align-items-center py-3 my-4">
                     <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 Company, Inc</p>
                     <ul class="nav justify-content-end">
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+                        <!-- <li class="nav-item"><a href="index" class="nav-link px-2 text-body-secondary">Home</a></li> -->
                     </ul>
                 </footer>
             </div>
