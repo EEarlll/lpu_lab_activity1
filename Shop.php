@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earlll</title>
-    <script src="index.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
@@ -13,7 +12,7 @@
 <body>
     <main class="d-flex">
         <div class="p-3 text-bg-dark sticky-top vh-100" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center mb-3 text-white text-decoration-none">
+            <a href="#" class="d-flex align-items-center mb-3 text-white text-decoration-none">
                 <h1 class="mx-auto" style="padding: 3rem 0rem 7rem 0rem;">Earl POS</h1>
             </a>
             <ul class="nav flex-column mb-auto">
@@ -42,7 +41,7 @@
         </div>
         <div class="flex-grow-1 w-100">
             <!-- navbar -->
-            <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid my-2">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search Product" aria-label="Search" size="30">
@@ -65,8 +64,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="row  mx-auto">
+            <div class="row mx-auto">
                 <?php
+                require_once('AddtoCart.php');
                 require_once('Prices.php');
                 for ($i = 1; $i < 21; $i++) {
                     echo "
@@ -76,7 +76,12 @@
                                 <div class='card-body'>
                                 <h5 class='card-title text-center'>Dress $i</h5>
                                 <p class='card-text fs-5 text-center'>₱{$Dress_prices[$i]}</p>
-                                <button type='button' class='btn btn-primary w-100'>Add to cart</button>
+                                <form method='post'>
+                                    <input type='hidden' name='category' value='Dress'>
+                                    <input type='hidden' name='items' value='$i'>
+                                    <input type='hidden' name='price' value='{$Dress_prices[$i]}'>
+                                    <button type='submit' class='btn btn-primary w-100'>Add to cart</button>
+                                </form>
                                 </div>
                             </div>
                         </div>

@@ -16,7 +16,7 @@ echo "";
 <body>
     <main class="d-flex">
         <div class="p-3 text-bg-dark sticky-top vh-100" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center mb-3 text-white text-decoration-none">
+            <a href="#" class="d-flex align-items-center mb-3 text-white text-decoration-none">
                 <h1 class="mx-auto" style="padding: 3rem 0rem 7rem 0rem;">Earl POS</h1>
             </a>
             <ul class="nav flex-column mb-auto">
@@ -45,7 +45,7 @@ echo "";
         </div>
         <div class="flex-grow-1 w-100">
             <!-- navbar -->
-            <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid my-2">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search Product" aria-label="Search" size="30">
@@ -70,20 +70,26 @@ echo "";
             </div>
             <div class="row  mx-auto">
                 <?php
+                require_once('AddtoCart.php');
                 require_once('Prices.php');
                 for ($i = 1; $i < 21; $i++) {
                     echo "
-                                <div class='col mb-4'>
-                                    <div class='card' style='width: 18rem;'>
-                                        <img src='Images/Drinks/$i.jpg' class='card-img-top' alt='...' height='200'>
-                                        <div class='card-body'>
-                                        <h5 class='card-title text-center'>Drinks $i</h5>
-                                        <p class='card-text fs-5 text-center'>₱{$Drinks_prices[$i]}</p>
-                                        <button type='button' class='btn btn-primary w-100'>Add to cart</button>
-                                        </div>
-                                    </div>
+                        <div class='col mb-4'>
+                            <div class='card' style='width: 18rem;'>
+                                <img src='Images/Drinks/$i.jpg' class='card-img-top' alt='...' height='200'>
+                                <div class='card-body'>
+                                <h5 class='card-title text-center'>Drinks $i</h5>
+                                <p class='card-text fs-5 text-center'>₱{$Drinks_prices[$i]}</p>
+                                <form method='post'>
+                                    <input type='hidden' name='category' value='Drinks'>
+                                    <input type='hidden' name='items' value='$i'>
+                                    <input type='hidden' name='price' value='{$Drinks_prices[$i]}'>
+                                    <button type='submit' class='btn btn-primary w-100'>Add to cart</button>
+                                </form>
                                 </div>
-                                ";
+                            </div>
+                        </div>
+                        ";
                 }
                 ?>
             </div>

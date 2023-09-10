@@ -16,7 +16,7 @@ require_once('Prices.php');
     <main class="d-flex">
         <!-- sidebar -->
         <div class="p-3 text-bg-dark sticky-top vh-100" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center mb-3 text-white text-decoration-none">
+            <a href="#" class="d-flex align-items-center mb-3 text-white text-decoration-none">
                 <h1 class="mx-auto" style="padding: 3rem 0rem 7rem 0rem;">Earl POS</h1>
             </a>
             <ul class="nav flex-column mb-auto">
@@ -46,7 +46,7 @@ require_once('Prices.php');
         <!-- main -->
         <div class="flex-grow-1 w-100">
             <!-- navbar -->
-            <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid my-2">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search Product" aria-label="Search" size="30">
@@ -143,7 +143,6 @@ require_once('Prices.php');
                                         <div class='card-body'>
                                             <h5 class='card-title text-center'>Dress $i</h5>
                                             <p class='card-text fs-5 text-center'>₱{$Dress_prices[$i]}</p>
-                                            <a href='#' class='btn btn-primary d-flex justify-content-center align-items-center'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +162,6 @@ require_once('Prices.php');
                                         <div class='card-body'>
                                             <h5 class='card-title text-center'>Drink $i</h5>
                                             <p class='card-text fs-5 text-center'>₱{$Drinks_prices[$i]}</p>
-                                            <a href='#' class='btn btn-primary d-flex justify-content-center align-items-center'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +181,6 @@ require_once('Prices.php');
                                         <div class='card-body'>
                                             <h5 class='card-title text-center'>Foods $i</h5>
                                             <p class='card-text fs-5 text-center'>₱{$Foods_prices[$i]}</p>
-                                            <a href='#' class='btn btn-primary d-flex justify-content-center align-items-center'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -203,7 +200,6 @@ require_once('Prices.php');
                                         <div class='card-body'>
                                             <h5 class='card-title text-center'>Kitchenware $i</h5>
                                             <p class='card-text fs-5 text-center'>₱{$Kitchenwares_prices[$i]}</p>
-                                            <a href='#' class='btn btn-primary d-flex justify-content-center align-items-center'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -223,7 +219,6 @@ require_once('Prices.php');
                                         <div class='card-body'>
                                             <h5 class='card-title text-center'>Perfume $i</h5>
                                             <p class='card-text fs-5 text-center'>₱{$Perfume_prices[$i]}</p>
-                                            <a href='#' class='btn btn-primary d-flex justify-content-center align-items-center'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>

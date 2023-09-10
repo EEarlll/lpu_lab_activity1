@@ -1,3 +1,31 @@
+<?php
+session_start();
+$cartItems = [];
+$cartPrice = [];
+$cartCategory = [];
+
+// Check if cart session variable exists
+if (isset($_SESSION['cart'])) {
+    $cartItems = $_SESSION['cart'];
+    $cartPrice = $_SESSION['price'];
+    $cartCategory = $_SESSION['category'];
+} else {
+    $cartItems = array();
+}
+
+if (isset($_POST['remove'])) {
+    unset($cartItems[$_POST['remove']]);
+    unset($cartPrice[$_POST['remove']]);
+    unset($cartCategory[$_POST['remove']]);
+    $cartItems = array_values($cartItems);
+    $cartPrice = array_values($cartPrice);
+    $cartCategory = array_values($cartCategory);
+    $_SESSION['cart'] = $cartItems;
+    $_SESSION['price'] = $cartPrice;
+    $_SESSION['category'] = $cartCategory;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +40,7 @@
 <body>
     <main class="d-flex">
         <div class="p-3 text-bg-dark sticky-top vh-100" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center mb-3 text-white text-decoration-none">
+            <a href="#" class="d-flex align-items-center mb-3 text-white text-decoration-none">
                 <h1 class="mx-auto" style="padding: 3rem 0rem 7rem 0rem;">Earl POS</h1>
             </a>
             <ul class="nav flex-column mb-auto">
@@ -52,24 +80,33 @@
             <!-- Order list -->
             <div class="mx-auto ">
                 <h5 class="mx-3">Order Details</h5>
-                <div class="row w-100" style="height: 50vh;">
+                <div class="row w-100" style="min-height: 500px;">
                     <div class="row row-cols-4">
-                        <!-- <div class="col">
-                            <div class="card mb-3 mx-3" style="max-width: 540px;">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img src="..." class="img-fluid rounded-start" alt="...">
+                        <?php
+                        for ($i = 0; $i < count($cartItems); $i++) {
+                            echo "
+                            <div class='col'>
+                            <div class='card mb-3 mx-3' style='max-width: 540px;'>
+                                <div class='row g-0'>
+                                    <div class='col-md-4 my-auto'>
+                                        <img src='Images/$cartCategory[$i]/$cartItems[$i].jpg' class='card-img-top rounded-start' alt='...' height='100'>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                    <div class='col-md-8'>
+                                        <div class='card-body'>
+                                            <h5 class='card-title'>$cartCategory[$i] . $cartItems[$i]</h5>
+                                            <p class='card-text'>Price: $cartPrice[$i]</p>
+                                            <form method='post'>
+                                                <input type='hidden' name='remove' value='$i'>
+                                                <button type='submit' class='btn btn-danger' id='btn_remove' onclick='reloadPage()'>Remove Item</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
+                        ";
+                        }
+                        ?>
                     </div>
                 </div>
                 <!-- input list -->
@@ -294,10 +331,9 @@
             </div>
         </div>
 
-
-
     </main>
-
+    <script>
+    </script>
 </body>
 
 </html>
