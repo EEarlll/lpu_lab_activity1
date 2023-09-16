@@ -11,7 +11,7 @@
 
 <body>
     <div class="d-flex">
-        <div class="vh-100 sticky-top bg-dark" style="width: 280px;">
+        <div class="vh-100 sticky-top bg-black" style="width: 280px;">
             <h1 class="text-white fs-5 text-center my-5">Earl's Choice Enterprise</h1>
             <ul class="nav flex-column mb-auto">
                 <li class="">

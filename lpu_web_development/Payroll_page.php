@@ -9,8 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 
-<body class="my-2">
-    <div class="container border">
+<body class="my-2 bg-black">
+    <div class="container border bg-white">
         <h1 class="d-flex justify-content-center m-3" style="font-size:47px;">Earl'S Choice Payroll</h1>
         <form class="row" action="" method="post">
             <div class="col">
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                         </li>
-                        <h1 class="fs-5 my-1">Basic Income:</h1>
+                        <h1 class="fs-5">Basic Income:</h1>
                         <li class="list-group-item border-0">
                             <div class="row align-items-center">
                                 <div class="col-md-6">
@@ -391,7 +391,6 @@
             </div>
         </form>
     </div>
-
 
 </body>
 
