@@ -38,11 +38,12 @@
                         <div class='card mb-3 mx-3 ' style='max-width: 300px;'>
                             <div class='row g-0'>
                                 <img src='Images/Dress/$i.jpg' class='card-img-top rounded-start' alt='...' height='100'/>
-                                <p class='card-title text-center'>Dress $i - <span style='font-weight:bold;'>₱{$Dress_prices[$i]}</span></p>
-                                <form method='post'>
-                                    <input type='hidden' name='items' value='$i'>
-                                    <input type='hidden' name='price' value='{$Dress_prices[$i]}'>
-                                </form>
+                                <div class='form-check d-flex justify-content-center align-items-center'>
+                                    <input class='form-check-input' type='checkbox' value='' id='checkbox$i'>
+                                    <label class='form-check-label px-3' for='checkbox$i'>
+                                        Dress $i - <span style='font-weight:bold;'>₱{$Dress_prices[$i]}</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>

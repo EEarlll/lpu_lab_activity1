@@ -35,14 +35,15 @@
                 for ($i = 1; $i < 21; $i++) {
                     echo "
                     <div class='col'>
-                        <div class='card mb-3 mx-3' style='max-width: 300px;'>
+                        <div class='card mb-3 mx-3 ' style='max-width: 300px;'>
                             <div class='row g-0'>
                                 <img src='Images/Drinks/$i.jpg' class='card-img-top rounded-start' alt='...' height='100'/>
-                                <p class='card-title text-center'>Drink $i - <span style='font-weight:bold;'>₱{$Drinks_prices[$i]}</span></p>
-                                <form method='post'>
-                                    <input type='hidden' name='items' value='$i'>
-                                    <input type='hidden' name='price' value='{$Drinks_prices[$i]}'>
-                                </form>
+                                <div class='form-check d-flex justify-content-center align-items-center'>
+                                    <input class='form-check-input' type='checkbox' value='' id='checkbox$i'>
+                                    <label class='form-check-label px-3' for='checkbox$i'>
+                                        Drinks $i - <span style='font-weight:bold;'>₱{$Drinks_prices[$i]}</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
