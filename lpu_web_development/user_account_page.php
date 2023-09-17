@@ -16,12 +16,12 @@
             <h1 class="text-white fs-5 text-center my-5">Earl's Choice Enterprise</h1>
             <ul class="nav flex-column mb-auto">
                 <li class="">
-                    <a href="#" class="nav-link text-white mb-4">
+                    <a href="Admin_page.php" class="nav-link mb-4 text-white">
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="Shop.php" class="nav-link text-white mb-4">
+                    <a href="employee_registration_save.php" class="nav-link text-white mb-4">
                         Employee Registration
                     </a>
                 </li>
@@ -31,32 +31,32 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Cart.php" class="nav-link text-white mb-4">
+                    <a href="Payroll_page.php" class="nav-link text-white mb-4">
                         Payroll
                     </a>
                 </li>
                 <li>
-                    <a href="Cart.php" class="nav-link text-white  mb-4">
+                    <a href="#" class="nav-link text-white  mb-4">
                         Payroll Report
                     </a>
                 </li>
                 <li>
-                    <a href="Cart.php" class="nav-link text-white mb-4">
+                    <a href="#" class="nav-link text-white mb-4">
                         POS
                     </a>
                 </li>
                 <li>
-                    <a href="Cart.php" class="nav-link text-white mb-4">
+                    <a href="#" class="nav-link text-white mb-4">
                         POS Sales Report
                     </a>
                 </li>
                 <li>
-                    <a href="Cart.php" class="nav-link mb-4">
+                    <a href="user_account_page.php" class="nav-link active mb-4">
                         User Account
                     </a>
                 </li>
                 <li>
-                    <a href="Cart.php" class="nav-link text-white  mb-4">
+                    <a href="#" class="nav-link text-white  mb-4">
                         Logout
                     </a>
                 </li>
@@ -96,7 +96,7 @@
                                                     <label>Middle Name</label>
                                                     <div class="input-items default">
                                                         <i class="lni lni-envelope"></i>
-                                                        <input type="text"  />
+                                                        <input type="text" />
                                                     </div>
                                                 </div>
                                                 <!-- form input -->
@@ -106,7 +106,7 @@
                                                     <label>Last name</label>
                                                     <div class="input-items default">
                                                         <i class="lni lni-phone"></i>
-                                                        <input type="text"  />
+                                                        <input type="text" />
                                                     </div>
                                                 </div>
                                                 <!-- form input -->
@@ -147,7 +147,7 @@
                                                     <label>Password</label>
                                                     <div class="input-items default">
                                                         <i class="lni lni-phone"></i>
-                                                        <input type="text"  />
+                                                        <input type="text" />
                                                     </div>
                                                 </div>
                                                 <!-- form input -->
@@ -188,7 +188,7 @@
                                                     <label>Employee Number</label>
                                                     <div class="input-items default">
                                                         <i class="lni lni-phone"></i>
-                                                        <input type="text"  />
+                                                        <input type="text" />
                                                     </div>
                                                 </div>
                                                 <!-- form input -->
@@ -198,7 +198,7 @@
                                                     <label>Department</label>
                                                     <div class="input-items default">
                                                         <i class="lni lni-bubble"></i>
-                                                        <input type="text"  />
+                                                        <input type="text" />
                                                     </div>
                                                 </div>
                                                 <!-- form input -->

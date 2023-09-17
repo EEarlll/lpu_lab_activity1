@@ -15,12 +15,12 @@
             <h1 class="text-white fs-5 text-center my-5">Earl's Choice Enterprise</h1>
             <ul class="nav flex-column mb-auto">
                 <li class="">
-                    <a href="#" class="nav-link mb-4">
+                    <a href="Admin_page.php" class="nav-link mb-4">
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white mb-4">
+                    <a href="employee_registration_save.php" class="nav-link text-white mb-4">
                         Employee Registration
                     </a>
                 </li>
@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white mb-4">
+                    <a href="Payroll_page.php" class="nav-link text-white mb-4">
                         Payroll
                     </a>
                 </li>
@@ -50,7 +50,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white mb-4">
+                    <a href="user_account_page.php" class="nav-link text-white mb-4">
                         User Account
                     </a>
                 </li>
