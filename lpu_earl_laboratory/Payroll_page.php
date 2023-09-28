@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="POS/Shop.php" class="nav-link text-white mb-4">
+                    <a href="Shop.php" class="nav-link text-white mb-4">
                         POS
                     </a>
                 </li>
@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white  mb-4">
+                    <a href="login_page.php" class="nav-link text-white  mb-4">
                         Logout
                     </a>
                 </li>
