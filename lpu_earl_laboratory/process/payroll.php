@@ -93,7 +93,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         //sss contribution
-        if ($gross_income >= 4250 && $gross_income <= 4749.99) {
+        if($gross_income <= 4250) {
+            $sss_contri = 380.00;
+        } else if ($gross_income >= 4250 && $gross_income <= 4749.99) {
             $sss_contri = 427.50;
         } else if ($gross_income >= 4750 && $gross_income <= 5249.99) {
             $sss_contri = 475.00;
