@@ -96,7 +96,7 @@
                             <div class='col' onclick='handleItems(\"$label\", \"$price\")' role='button'>
                                 <div class='card mb-3 mx-3 ' style='max-width: 300px;'>
                                     <div class='row g-0'>
-                                        <img src='Images/Foods/$i.jpg' class='card-img-top rounded-start' alt='...' height='100'/>
+                                        <img src='Images/Foods/$i.jpg' class='card-img-top rounded-start' alt='...' height='100' style='width:100%;height:5.2vw;object-fit:contain'/>
                                         <div class='form-check d-flex justify-content-center align-items-center'>
                                             <label class='form-check-label px-3' for='checkbox$i'>
                                                 $label - <span style='font-weight:bold;'>₱$price</span>
