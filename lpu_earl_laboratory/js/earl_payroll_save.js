@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
   
       var formData = new FormData();
-  
+        
+      // iterate input with class .form-control
       document.querySelectorAll(".form-control").forEach(function (element) {
         var fieldName = element.id;
         var fieldValue = element.value;
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   
       try {
+        // post request
         const response = await fetch("../process/earl_payroll_save.php", {
           method: "POST",
           body: formData,
