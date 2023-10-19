@@ -30,6 +30,9 @@ function empty_inputbox()
     $salary_loan = "";
     $other_loans = "";
 }
+
+
+
 //decleration of variables with fix data value for employee info
 $employee_no = "69420";
 $department = "DOE";

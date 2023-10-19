@@ -10,10 +10,13 @@ require_once('process/payroll.php');
     <title>Payroll Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/earl_payroll_save.js"></script>
 </head>
 
 <body style="background:black url(Images/Assets/pattern.webp);">
     <div class="d-flex">
+        <!-- sidebar -->
         <div class="vh-100 sticky-top" style="width: 280px;">
 
             <h1 class="text-white fs-5 text-center my-5">Earl's Choice Enterprise</h1>
@@ -65,9 +68,11 @@ require_once('process/payroll.php');
                 </li>
             </ul>
         </div>
+        <!-- main content -->
         <div class="flex-grow-1">
             <div class="container border bg-white">
                 <h1 class="d-flex justify-content-center m-2" style="font-size:30px;">Earl'S Choice Payroll</h1>
+                <!-- form inputs -->
                 <form class="row" method="post">
                     <div class="col">
                         <div class="d-flex justify-content-center align-items-center flex-column">
@@ -87,7 +92,7 @@ require_once('process/payroll.php');
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3" style="height: 2rem;">
-                                                <input type="text" class="form-control" aria-describedby="button-addon2" name="employee_no" value="<?php echo $employee_no ?>">
+                                                <input type="text" class="form-control" aria-describedby="button-addon2" id='employee_no' name="employee_no" value="<?php echo $employee_no ?>">
                                                 <button class="btn btn-outline-secondary" type="button" id="search_button"> <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24" class="">
                                                         <path d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 20 22 L 22 20 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"></path>
                                                     </svg></button>
@@ -101,7 +106,7 @@ require_once('process/payroll.php');
                                             Department:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="department" class="form-control mb-1" style="height:2rem;" value="<?php echo $department ?>" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="department" id='department' class="form-control mb-1" style="height:2rem;" value="<?php echo $department ?>" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -112,7 +117,7 @@ require_once('process/payroll.php');
                                             Rate / Hour:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="basic_rate_hour" value="<?php echo $basic_rate_hour; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="basic_rate_hour" id='basic_rate_hour' value="<?php echo $basic_rate_hour; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -122,7 +127,7 @@ require_once('process/payroll.php');
                                             No. of Hours / Cut Off:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="basic_num_hours_cutoff" value="<?php echo $basic_num_hours_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="basic_num_hours_cutoff" id='basic_num_hours_cutoff' value="<?php echo $basic_num_hours_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -132,7 +137,7 @@ require_once('process/payroll.php');
                                             Income / Cut Off:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="basic_income_cutoff" value="<?php echo $basic_income_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="basic_income_cutoff" id='basic_income_cutoff' value="<?php echo $basic_income_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -143,7 +148,7 @@ require_once('process/payroll.php');
                                             Rate / Hour:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="hono_rate_hour" value="<?php echo $hono_rate_hour; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="hono_rate_hour" id='hono_rate_hour' value="<?php echo $hono_rate_hour; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -153,7 +158,7 @@ require_once('process/payroll.php');
                                             No. of Hours/ Cut off
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="hono_num_hours_cutoff" value="<?php echo $hono_num_hours_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="hono_num_hours_cutoff" id='hono_num_hours_cutoff' value="<?php echo $hono_num_hours_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -163,7 +168,7 @@ require_once('process/payroll.php');
                                             Income / Cut Off:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="hono_income_cutoff" value="<?php echo $hono_income_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="hono_income_cutoff" id='hono_income_cutoff' value="<?php echo $hono_income_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -174,7 +179,7 @@ require_once('process/payroll.php');
                                             Rate / Hour:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="other_rate_hour" value="<?php echo $other_rate_hour; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="other_rate_hour" id='other_rate_hour' value="<?php echo $other_rate_hour; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -184,7 +189,7 @@ require_once('process/payroll.php');
                                             No. of Hours/ Cut off
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="other_num_hours_cutoff" value="<?php echo $other_num_hours_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="other_num_hours_cutoff" id='other_num_hours_cutoff' value="<?php echo $other_num_hours_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -194,7 +199,7 @@ require_once('process/payroll.php');
                                             Income / Cut Off:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="other_income_cutoff" value="<?php echo $other_income_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="other_income_cutoff" id='other_income_cutoff' value="<?php echo $other_income_cutoff; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -205,7 +210,7 @@ require_once('process/payroll.php');
                                             Gross Income:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="gross_income" value="<?php echo $gross_income; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="gross_income" id='gross_income' value="<?php echo $gross_income; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -215,7 +220,7 @@ require_once('process/payroll.php');
                                             Net Income:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="net_income" value="<?php echo $net_income; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="net_income" id='net_income' value="<?php echo $net_income; ?>" class="form-control mb-1" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -232,7 +237,7 @@ require_once('process/payroll.php');
                                             Firstname:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="firstname" class="form-control mb-1 w-75" value="<?php echo $firstname ?>" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="firstname" id='firstname' class="form-control mb-1 w-75" value="<?php echo $firstname ?>" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -242,7 +247,7 @@ require_once('process/payroll.php');
                                             Middle Name:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="mname" class="form-control mb-1 w-75" value="<?php echo $mname ?>" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="mname" id='mname' class="form-control mb-1 w-75" value="<?php echo $mname ?>" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -252,7 +257,7 @@ require_once('process/payroll.php');
                                             Surname:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="surname" class="form-control mb-1 w-75" value="<?php echo $surname ?>" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="surname" id='surname' class="form-control mb-1 w-75" value="<?php echo $surname ?>" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -262,7 +267,7 @@ require_once('process/payroll.php');
                                             Civil Status:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="civil_status" class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $civil_status ?>" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="civil_status" id='civil_status' class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $civil_status ?>" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -272,7 +277,7 @@ require_once('process/payroll.php');
                                             Designation:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="designation" class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $designation ?>" disabled aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="designation" id='designation' class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $designation ?>" disabled aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -282,7 +287,7 @@ require_once('process/payroll.php');
                                             Qualified Dependents
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="qualified_dependents" class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $qualified_dependents ?>" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="qualified_dependents" id='qualified_dependents' class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $qualified_dependents ?>" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -292,7 +297,7 @@ require_once('process/payroll.php');
                                             Paydate:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="paydate" class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $paydate ?>" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="paydate" id='paydate' class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $paydate ?>" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -302,7 +307,7 @@ require_once('process/payroll.php');
                                             Employee Status:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="emp_status" class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $emp_status ?>" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="emp_status" id='emp_status' class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $emp_status ?>" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -313,7 +318,7 @@ require_once('process/payroll.php');
                                             SSS Contribution:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="sss_contri" class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $sss_contri ?>" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="sss_contri" id='sss_contri' class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $sss_contri ?>" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -323,7 +328,7 @@ require_once('process/payroll.php');
                                             PhilHealth Contribution:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="philH_contri" class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $philH_contri ?>" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="philH_contri" id='philH_contri' class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $philH_contri ?>" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -333,7 +338,7 @@ require_once('process/payroll.php');
                                             Pagibig Contribution:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="pagibig_contri" class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $pagibig_contri ?>" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="pagibig_contri" id='pagibig_contri' class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $pagibig_contri ?>" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -343,7 +348,7 @@ require_once('process/payroll.php');
                                             Income Tax Contribution:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="tax_contri" class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $tax_contri ?>" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="tax_contri" id='tax_contri' class="form-control mb-1 w-75" style="height:2rem;" value="<?php echo $tax_contri ?>" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -354,7 +359,7 @@ require_once('process/payroll.php');
                                             SSS Loan:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="sss_loan" value="<?php echo $sss_loan; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="sss_loan" id='sss_loan' value="<?php echo $sss_loan; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -364,7 +369,7 @@ require_once('process/payroll.php');
                                             Pagibig Loan
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="pagibig_loan" value="<?php echo $pagibig_loan; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="pagibig_loan" id='pagibig_loan' value="<?php echo $pagibig_loan; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -374,7 +379,7 @@ require_once('process/payroll.php');
                                             Faculty Saving Deposit:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="fs_deposit" value="<?php echo $fs_deposit; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="fs_deposit" id='fs_deposit' value="<?php echo $fs_deposit; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -384,7 +389,7 @@ require_once('process/payroll.php');
                                             Faculty Saving Loan:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="fs_loan" value="<?php echo $fs_loan; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="fs_loan" id='fs_loan' value="<?php echo $fs_loan; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -394,7 +399,7 @@ require_once('process/payroll.php');
                                             Salary Loan:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="salary_loan" value="<?php echo $salary_loan; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="salary_loan" id='salary_loan' value="<?php echo $salary_loan; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -404,7 +409,7 @@ require_once('process/payroll.php');
                                             Other Loans:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="other_loans" value="<?php echo $other_loans; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" name="other_loans" id='other_loans' value="<?php echo $other_loans; ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)">
                                         </div>
                                     </div>
                                 </li>
@@ -415,7 +420,7 @@ require_once('process/payroll.php');
                                             Total Deductions:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="total_deduct" value="<?php echo $total_deduct ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <input type="text" name="total_deduct" id='total_deduct' value="<?php echo $total_deduct ?>" class="form-control mb-1 w-75" style="height:2rem;" aria-label="Amount (to the nearest dollar)" disabled>
                                         </div>
                                     </div>
                                 </li>
@@ -431,12 +436,10 @@ require_once('process/payroll.php');
                                             <button type="submit" name="new" class="btn btn-warning w-100" style="white-space: nowrap; font-size:0.9rem;">New</button>
                                         </div>
                                         <div class="col-4">
-                                            <button type="button" class="btn btn-info  w-100 " style="white-space: nowrap; font-size:0.9rem;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                Preview Payslip
-                                            </button>
+                                            <button type="submit" name='save' id='save' class="btn btn-warning  w-100 " style="white-space: nowrap; font-size:0.9rem;">Save</button>
                                         </div>
                                         <div class="col-3">
-                                            <a target="_blank" href="/process/print_preview.php" class="btn btn-info  w-100 " style="white-space: nowrap; font-size:0.9rem;">Print Payslip</a>
+                                            <button type='submit' name='print_payslip' class="btn btn-info  w-100 " style="white-space: nowrap; font-size:0.9rem;">Print Payslip</button>
                                         </div>
                                         <div class="col-2">
                                             <button type="submit" name="cancel" class="btn btn-danger  w-100" style="white-space: nowrap; font-size:0.9rem;">Cancel</button>
@@ -453,111 +456,7 @@ require_once('process/payroll.php');
             </div>
         </div>
     </div>
-    <!-- modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Preview Payslip</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container w-75">
-                        <div class="row bg-white">
-                            <div class="col-md-12 my-4">
-                                <div class="text-center lh-1 mb-2">
-                                    <h6 class="fw-bold">Payslip</h6> <span class="fw-normal">Payment slip</span>
-                                </div>
-                                <div class="d-flex justify-content-end"> <span>Department: <?php echo $department ?></span> </div>
-                                <div class="row">
-                                    <div class="col-md-10">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div> <span class="fw-bolder">EMP No</span> <small class="ms-3"><?php echo $employee_no ?></small> </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div> <span class="fw-bolder">EMP Name</span> <small class="ms-3"><?php echo $firstname . " " . $mname . " " . $surname ?></small> </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div> <span class="fw-bolder">Civil Status</span> <small class="ms-3"><?php echo $civil_status ?></small> </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div> <span class="fw-bolder">Designation</span> <small class="ms-3"><?php echo $designation ?></small> </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div> <span class="fw-bolder">Qualified dependent</span> <small class="ms-3"><?php echo $qualified_dependents ?></small> </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div> <span class="fw-bolder">Paydate</span> <small class="ms-3"><?php echo $paydate ?></small> </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="mt-4 table table-bordered">
-                                        <thead class="bg-dark text-white">
-                                            <tr>
-                                                <th scope="col"></th>
-                                                <th scope="col">Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="">
-                                            <tr>
-                                                <th scope="row">Basic Income:</th>
-                                                <td><?php echo $_SESSION['basic_income_cutoff']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Honorarium Income:</th>
-                                                <td><?php echo $_SESSION['hono_income_cutoff']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Other Income:</th>
-                                                <td><?php echo $_SESSION['other_income_cutoff']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">SSS Contribution:</th>
-                                                <td><?php echo $_SESSION['sss_contri']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">PhilHealth Contribution:</th>
-                                                <td><?php echo $_SESSION['philH_contri']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Pagibig Contribution:</th>
-                                                <td><?php echo $_SESSION['pagibig_contri']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Tax Contribution:</th>
-                                                <td><?php echo $_SESSION['tax_contri']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Total Deduction:</th>
-                                                <td><?php echo $_SESSION['total_deduct']; ?></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4"> <br> <span class="fw-bold">Net Pay : <?php echo $_SESSION['net_income']; ?></span> </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4"> <br> <span class="fw-bold">Net Pay : <?php echo $_SESSION['gross_income']; ?></span> </div>
-                                </div>
-                                <div class="d-flex justify-content-end">
-                                    <div class="d-flex flex-column mt-2"> <span class="fw-bolder">For <?php echo $firstname; ?></span> <span class="mt-4">Authorised Signatory</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </body>
 
 </html>
