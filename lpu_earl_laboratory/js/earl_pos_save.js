@@ -18,7 +18,7 @@ $(document).ready(function () {
   
       $.ajax({
         type: "POST",
-        url: "../process/earl_pos_save.php",
+        url: "process/earl_pos_save.php",
         data: formData,
         dataType: "json",
         success: function (result) {

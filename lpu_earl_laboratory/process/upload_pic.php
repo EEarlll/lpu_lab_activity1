@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $dir = '../temp';
         $target = $dir . '/' . $filename;
         if(move_uploaded_file($source, $target)){
-            echo json_encode((['ok' => 1, 'temp_path' => $target]));
+            echo json_encode((['ok' => 1, 'temp_path' => substr($target, 3)]));
         }else{
             echo json_encode(['ok' => 0]);
         }

@@ -12,7 +12,7 @@ $(document).ready(function () {
   
       $.ajax({
         type: "POST",
-        url: "../process/emp_info_save.php",
+        url: "process/emp_info_save.php",
         data: formData,
         dataType: "json",
         success: function (result) {
@@ -26,7 +26,7 @@ $(document).ready(function () {
         var formData = new FormData($("#pic-upload")[0])
         $.ajax({
             type:"POST",
-            url:'../process/upload_pic.php',
+            url:'process/upload_pic.php',
             data :formData,
             contentType:false,
             processData:false,

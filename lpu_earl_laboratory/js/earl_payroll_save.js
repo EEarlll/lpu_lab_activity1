@@ -8,10 +8,10 @@ $(document).ready(function () {
       var fieldValue = $(this).val();
       formData[fieldName] = fieldValue;
     });
-
+    
     $.ajax({
       type: "POST",
-      url: "../process/earl_payroll_save.php",
+      url: "process/earl_payroll_save.php",
       data: formData,
       dataType: "json",
       success: function (result) {
