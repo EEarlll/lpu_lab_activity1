@@ -7,6 +7,7 @@
     <title>POS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body style="background:black url(Images/Assets/pattern.webp);">
@@ -221,24 +222,24 @@
                         <div class="col-6">
                             <!-- radio -->
                             <div>
-                                <ul class="list-group list-group-horizontal gap-5">
+                            <ul class="list-group list-group-horizontal gap-5">
                                     <li class="" style="list-style-type: none;">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="senior" onclick="handleDiscounts(0.30)">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="senior" value='Senior Citizen' onclick="handleDiscounts(0.30)">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Senior Citizen
                                         </label>
                                     </li>
-                                    <li class="" style="list-style-type: none;"> <input class="form-check-input" type="radio" name="flexRadioDefault" id="discountCard" onclick="handleDiscounts(0.20)">
+                                    <li class="" style="list-style-type: none;"> <input class="form-check-input" type="radio" name="flexRadioDefault" value='Discount Card' id="discountCard" onclick="handleDiscounts(0.20)">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             With Disc. Card
                                         </label>
                                     </li>
-                                    <li class="" style="list-style-type: none;"> <input class="form-check-input" type="radio" name="flexRadioDefault" id="employee" onclick="handleDiscounts(0.15)">
+                                    <li class="" style="list-style-type: none;"> <input class="form-check-input" type="radio" name="flexRadioDefault" value='Employee Discount' id="employee" onclick="handleDiscounts(0.15)">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Employee Disc.
                                         </label>
                                     </li>
-                                    <li class="" style="list-style-type: none;"> <input class="form-check-input" type="radio" name="flexRadioDefault" id="noDiscount" onclick="handleDiscounts(0)">
+                                    <li class="" style="list-style-type: none;"> <input class="form-check-input" type="radio" name="flexRadioDefault" value='No discount' id="noDiscount" onclick="handleDiscounts(0)">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             No Disc.
                                         </label>
@@ -255,7 +256,7 @@
                                         <button type="button" class="btn btn-danger w-100" onclick="handleNew()">New</button>
                                     </div>
                                     <div class="col">
-                                        <button type="button" class="btn btn-warning w-100">Save</button>
+                                    <button type="button" class="btn btn-warning w-100" id='save'>Save</button>
                                     </div>
                                     <div class="col">
                                         <button type="button" class="btn btn-dark w-100">Update</button>
@@ -332,6 +333,7 @@
     <script src="js/new.js" defer></script>
     <script src="js/discounts.js" defer></script>
     <script src="js/Items.js" defer></script>
+    <script src="js/earl_pos_save.js"></script>
 
 </body>
 
