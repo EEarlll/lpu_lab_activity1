@@ -24,6 +24,7 @@ $(document).ready(function () {
     });
     $("#uploadfile").change(function(e){
         var formData = new FormData($("#pic-upload")[0])
+
         $.ajax({
             type:"POST",
             url:'process/upload_pic.php',
@@ -35,6 +36,7 @@ $(document).ready(function () {
                 if(result.ok){
                     $('#pic-box').html('')
                     $('#pic-box').append("<img src='" + result.temp_path + "' style='width:100%;height:100%'/>")
+                    $('#picpath').val(result.temp_path)
                 }else{
                     alert('Error occured')
                 }

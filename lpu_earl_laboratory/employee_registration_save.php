@@ -1,4 +1,3 @@
-_
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +33,7 @@ _
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white mb-4">
+                    <a href="employee_report.php" class="nav-link text-white mb-4">
                         Employee Report
                     </a>
                 </li>
@@ -44,7 +43,7 @@ _
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white  mb-4">
+                    <a href="payroll_report.php" class="nav-link text-white  mb-4">
                         Payroll Report
                     </a>
                 </li>
@@ -54,7 +53,7 @@ _
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white mb-4">
+                    <a href="pos_sales_report.php" class="nav-link text-white mb-4">
                         POS Sales Report
                     </a>
                 </li>
@@ -696,7 +695,7 @@ _
                                     </div>
                                     <div class="form-group col3">
                                         <label for="picpath" class="mb-0">Picture Path</label>
-                                        <input type="text" class="form-control mt-0" name="picpath" id="picpath" value="">
+                                        <input type="text" class="form-control mt-0" name="picpath" id="picpath" value="" disabled>
                                     </div>
                                 </div>
                             </div>

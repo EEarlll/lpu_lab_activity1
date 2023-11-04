@@ -26,7 +26,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white mb-4">
+                    <a href="employee_report.php" class="nav-link text-white mb-4">
                         Employee Report
                     </a>
                 </li>
@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white  mb-4">
+                    <a href="payroll_report.php" class="nav-link text-white  mb-4">
                         Payroll Report
                     </a>
                 </li>
@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white mb-4">
+                    <a href="pos_sales_report.php" class="nav-link text-white mb-4">
                         POS Sales Report
                     </a>
                 </li>

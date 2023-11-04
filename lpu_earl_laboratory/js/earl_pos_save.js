@@ -14,6 +14,7 @@ $(document).ready(function () {
         var fieldValue = $(this).val();
         formData[fieldName] = fieldValue;
       });
+      
       console.log(formData)
   
       $.ajax({
