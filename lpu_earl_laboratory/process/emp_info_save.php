@@ -5,10 +5,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $fieldArray[] = $value;
     }
     //echo json_encode($fieldArray);
-    $picpath = $fieldArray[24];
+    $picpath = "../" . $fieldArray[24];
+
     if(file_exists($picpath)){
         $pic_filename = explode('temp/', $picpath)[1];
-        rename($picpath, 'uploads/' . $pic_filename);
+        rename($picpath, '../uploads/' . $pic_filename);
         $picpath = 'uploads/' .$pic_filename;
     }
 
