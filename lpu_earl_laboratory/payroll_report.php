@@ -90,53 +90,58 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <path d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 20 22 L 22 20 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"></path>
                         </svg></button>
                 </form>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">employee_no</th>
-                            <th scope="col">income_date</th>
-                            <th scope="col">basic_rate_hour</th>
-                            <th scope="col">basic_num_hrs</th>
-                            <th scope="col">basic_income</th>
-                            <th scope="col">hono_rate_hour</th>
-                            <th scope="col">hono_num_hrs</th>
-                            <th scope="col">hono_income</th>
-                            <th scope="col">other_rate_hour</th>
-                            <th scope="col">other_num_hrs</th>
-                            <th scope="col">other_income</th>
-                            <th scope="col">gross_income</th>
-                            <th scope="col">net_income</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        if ($result) {
-                            while ($item = $result->fetch_assoc()) {
-                                echo "
+                <section>
+                    <div class="table-responsive">
+                        <table class="table table-borderless bg-white rounded small">
+                            <thead class="border-bottom">
                                 <tr>
-                                    <th scope='row'>$item[id]</th>
-                                    <td>$item[employee_no]</td>
-                                    <td>$item[income_date]</td>
-                                    <td>$item[basic_rate_hour]</td>
-                                    <td>$item[basic_num_hrs]</td>
-                                    <td>$item[basic_income]</td>
-                                    <td>$item[hono_rate_hour]</td>
-                                    <td>$item[hono_num_hrs]</td>
-                                    <td>$item[hono_income]</td>
-                                    <td>$item[other_rate_hour]</td>
-                                    <td>$item[other_num_hrs]</td>
-                                    <td>$item[other_income]</td>
-                                    <td>$item[gross_income]</td>
-                                    <td>$item[net_income]</td>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">id</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">employee_no</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">income_date</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">basic_rate_hour</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">basic_num_hrs</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">basic_income</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">hono_rate_hour</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">hono_num_hrs</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">hono_income</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">other_rate_hour</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">other_num_hrs</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">other_income</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">gross_income</span></th>
+                                    <th class="py-6 ps-6"><span class="btn p-0 d-flex align-items-center text-secondary  pe-none">net_income</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                if ($result) {
+                                    while ($item = $result->fetch_assoc()) {
+                                        echo "
+                                <tr>
+                                    <td class='py-6 ps-6'>$item[id]</td>
+                                    <td class='py-6 ps-6'>$item[employee_no]</td>
+                                    <td class='py-6 ps-6'>$item[income_date]</td>
+                                    <td class='py-6 ps-6'>$item[basic_rate_hour]</td>
+                                    <td class='py-6 ps-6'>$item[basic_num_hrs]</td>
+                                    <td class='py-6 ps-6'>$item[basic_income]</td>
+                                    <td class='py-6 ps-6'>$item[hono_rate_hour]</td>
+                                    <td class='py-6 ps-6'>$item[hono_num_hrs]</td>
+                                    <td class='py-6 ps-6'>$item[hono_income]</td>
+                                    <td class='py-6 ps-6'>$item[other_rate_hour]</td>
+                                    <td class='py-6 ps-6'>$item[other_num_hrs]</td>
+                                    <td class='py-6 ps-6'>$item[other_income]</td>
+                                    <td class='py-6 ps-6'>$item[gross_income]</td>
+                                    <td class='py-6 ps-6'>$item[net_income]</td>
                                 </tr>
                                 ";
-                            }
-                        }
-                        ?>
+                                    }
+                                }
+                                ?>
 
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
             </div>
         </div>
     </div>
