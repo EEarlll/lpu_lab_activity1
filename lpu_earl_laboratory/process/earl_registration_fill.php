@@ -19,6 +19,8 @@ $municipality ='';
 $state_province = '';
 $zip_code = '';
 $pic_path ='';
+$suffix = '';
+$employee_no = '';
 
 if (isset($_GET['id'])) {
     include 'process/db_connection.php';

@@ -147,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 if ($result) {
                                     while ($item = $result->fetch_assoc()) {
                                         echo "
-                                <tr class='clickable-row' data-href='employee_registration_save.php?id={$item['id']}'>
+                                <tr class='clickable-row' style='cursor: pointer' data-href='employee_registration_save.php?id={$item['id']}'>
                                     <td class='py-6 ps-6'>$item[id]</td>
                                     <td class='py-6 ps-6'>$item[employee_no]</td>
                                     <td class='py-6 ps-6'>$item[fname]</td>

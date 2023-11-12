@@ -22,6 +22,7 @@ $(document).ready(function () {
             "form_employee_registration_save"
           );
           frm.reset();
+          document.getElementById('pic-img').src = "Images/Assets/placeholder.jpg";
           alert("Data successfully added!");
         }
       },
