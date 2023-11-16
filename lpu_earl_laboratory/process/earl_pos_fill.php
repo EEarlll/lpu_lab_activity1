@@ -27,5 +27,4 @@ if (isset($_GET['id'])) {
     $cash_given = $result['cash_given'];
     $customer_change = $result['customer_change'];
     $Itemprice = $result['price'];
-    
 }
