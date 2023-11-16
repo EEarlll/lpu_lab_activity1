@@ -57,15 +57,18 @@ if (isset($_GET['search'])) {
     $id = $_GET['search'];
     $sql = "SELECT * FROM `personal_infotbl` WHERE employee_no = '$id' OR id = '$id';";
     $result = mysqli_fetch_assoc($conn->query($sql));
-    $employee_no = $result['employee_no'];
-    $department = $result['department'];
-    $firstname = $result['fname'];
-    $mname = $result['mname'];
-    $surname = $result['lname'];
-    $civil_status = $result['civil_status'];
-    $emp_status = $result['employee_status'];
-    $designation = $result['designation'];
-    $qualified_dependents = $result['qualified_dependent_status'];
-    $paydate = $result['pay_date'];
-    $type = $result['picpath'];
+    if($result){
+        $employee_no = $result['employee_no'];
+        $department = $result['department'];
+        $firstname = $result['fname'];
+        $mname = $result['mname'];
+        $surname = $result['lname'];
+        $civil_status = $result['civil_status'];
+        $emp_status = $result['employee_status'];
+        $designation = $result['designation'];
+        $qualified_dependents = $result['qualified_dependent_status'];
+        $paydate = $result['pay_date'];
+        $type = $result['picpath'];
+    }
+
 }
