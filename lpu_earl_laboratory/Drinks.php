@@ -1,3 +1,6 @@
+<?php
+include 'process/earl_pos_fill.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -120,7 +123,7 @@
                                             Name of an Item:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled id="ItemName">
+                                            <input type="text" class="form-control" name='item_name' value='<?php echo $item_name?>' aria-label="Amount (to the nearest dollar)" disabled id="ItemName">
                                         </div>
                                     </div>
                                 </li>
@@ -130,7 +133,7 @@
                                             Quantity:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="Quantity" min="1">
+                                            <input type="number" class="form-control" name='quantity' value='<?php echo $quantity?>' aria-label="Amount (to the nearest dollar)" id="Quantity" min="1">
                                         </div>
                                     </div>
                                 </li>
@@ -140,7 +143,7 @@
                                             Price:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" disabled id="ItemPrice">
+                                            <input type="number" class="form-control" name='Itemprice' value='<?php echo $Itemprice?>' aria-label="Amount (to the nearest dollar)" disabled id="ItemPrice">
                                         </div>
                                     </div>
                                 </li>
@@ -150,7 +153,7 @@
                                             Discount Amount:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" disabled id="Discount">
+                                            <input type="number" class="form-control" name='discount_amount' value='<?php echo $discount_amount?>' aria-label="Amount (to the nearest dollar)" disabled id="Discount">
                                         </div>
                                     </div>
                                 </li>
@@ -160,7 +163,7 @@
                                             Discounted Amount:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled id="Discounted">
+                                            <input type="text" class="form-control" name='discounted_amount' value = '<?php echo $discounted_amount?>' aria-label="Amount (to the nearest dollar)" disabled id="Discounted">
                                         </div>
                                     </div>
                                 </li>
@@ -172,7 +175,7 @@
                                             Total Quantity:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled id="totalQuantity">
+                                            <input type="text" class="form-control" name='total_quantity' value= '<?php echo $total_quantity?>' aria-label="Amount (to the nearest dollar)" disabled id="totalQuantity">
                                         </div>
                                     </div>
                                 </li>
@@ -182,7 +185,7 @@
                                             Total Discount Given:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled id="totalDiscount">
+                                            <input type="text" class="form-control" name='total_discount_given' value='<?php echo $total_discount_given?>' aria-label="Amount (to the nearest dollar)" disabled id="totalDiscount">
                                         </div>
                                     </div>
                                 </li>
@@ -192,7 +195,7 @@
                                             Total Discounted Amount:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled id="totalDiscounted">
+                                            <input type="text" class="form-control" name='total_discounted_amount' value='<?php echo $total_discounted_amount?>' aria-label="Amount (to the nearest dollar)" disabled id="totalDiscounted">
                                         </div>
                                     </div>
                                 </li>
@@ -202,7 +205,7 @@
                                             Cash Given:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="Cash">
+                                            <input type="text" class="form-control" name='cash_given' value='<?php echo $cash_given?>' aria-label="Amount (to the nearest dollar)" id="Cash">
                                         </div>
                                     </div>
                                 </li>
@@ -212,7 +215,7 @@
                                             Change:
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled id="Change">
+                                            <input type="text" class="form-control" name='customer_change' value='<?php echo $customer_change?>' aria-label="Amount (to the nearest dollar)" disabled id="Change">
                                         </div>
                                     </div>
                                 </li>

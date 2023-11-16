@@ -1,5 +1,6 @@
 <?php
-require_once('process/payroll.php');
+include 'process/payroll.php';
+include 'process/earl_payroll_fill.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +79,7 @@ require_once('process/payroll.php');
                         <div class="d-flex justify-content-center align-items-center flex-column">
                             <h1 class="fs-5 mx-4">Employee Basic Info:</h1>
                             <div class="card mb-3 mx-4" style="width: 14rem;">
-                                <img src="Images/Assets/placeholder.jpg" class="card-img-top" alt="..." height="190">
+                                <img src=<?php echo isset($type) ? "$type" : "Images/Assets/placeholder.jpg"; ?> class="card-img-top" alt="..." height="190">
                                 <input type="file" class="p-1">
                             </div>
                         </div>
