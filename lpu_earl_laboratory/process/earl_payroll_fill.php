@@ -70,5 +70,5 @@ if (isset($_GET['search'])) {
         $paydate = $result['pay_date'];
         $type = $result['picpath'];
     }
+    }
 
-}

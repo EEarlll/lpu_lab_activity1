@@ -2,7 +2,6 @@
 function empty_inputbox()
 {
     $employee_no = "";
-    $employee_no = "";
     $department = "";
     $firstname = "";
     $mname = "";
