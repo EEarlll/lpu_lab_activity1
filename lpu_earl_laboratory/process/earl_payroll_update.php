@@ -37,7 +37,6 @@ try {
         include 'db_connection.php';
         $conn = OpenCon();
 
-        // save employee record to database
         // Update query for incometbl
         $sql1 = "UPDATE incometbl 
          SET income_date = '$pay_date',

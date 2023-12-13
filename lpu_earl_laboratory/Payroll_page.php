@@ -437,7 +437,7 @@ include 'process/earl_payroll_fill.php';
                                         </div>
                                         
                                         <div class="col-4">
-                                            <button type="submit" name='<?php echo isset($type)  ? "update" : "save"; ?>' id='<?php echo isset($type) ? "update" : "save"; ?>' class="btn btn-success  w-100 " style="white-space: nowrap; font-size:0.9rem;"><?php echo isset($type) ? "Update" : "Save"; ?></button>
+                                            <button type="submit" name='<?php echo $net_income > 0  ? "update" : "save"; ?>' id='<?php echo $net_income > 0 ? "update" : "save"; ?>' class="btn btn-success  w-100 " style="white-space: nowrap; font-size:0.9rem;"><?php echo $net_income > 0 ? "Update" : "Save"; ?></button>
                                         </div>
                                         <div class="col-4">
                                             <button type="submit" name="delete" id ='delete' class="btn btn-danger  w-100" style="white-space: nowrap; font-size:0.9rem;">Delete</button>
