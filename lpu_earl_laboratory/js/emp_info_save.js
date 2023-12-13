@@ -53,6 +53,30 @@ $(document).ready(function () {
     });
   });
 
+  $("#delete").click(function (e) {
+    e.preventDefault();
+
+    var formData = {};
+    $(".form-control").each(function () {
+      var fieldName = $(this).attr("id");
+      var fieldValue = $(this).val();
+      formData[fieldName] = fieldValue;
+    });
+
+    $.ajax({
+      type: "POST",
+      url: "process/emp_info_delete.php",
+      data: formData,
+      dataType: "json",
+      success: function (result) {
+        if (result.ok) {
+          alert("Data successfully deleted!");
+          window.location.href = "employee_report.php";
+        }
+      },
+    });
+  });
+
   // Image upload
   $("#uploadfile").change(function (e) {
     var formData = new FormData($("#pic-upload")[0]);

@@ -708,6 +708,11 @@ include 'process/earl_registration_fill.php';
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" id="<?php echo isset($type) ? "update" : "save"; ?>" name="savebtn" style="width:130px;" value=""><?php echo isset($type) ? "Update" : "Save"; ?></button>
+                        <?php
+                        if (isset($type)) {
+                            echo "<button type='submit' class='btn btn-danger' id='delete' name='delete' style='width:130px;'>Delete</button>";
+                        }
+                        ?>
                         <button type="reset" class="btn btn-outline-secondary" id="cancelbtn" name="cancelbtn" style="width:130px;">Cancel</button>
                     </form>
                 </div>

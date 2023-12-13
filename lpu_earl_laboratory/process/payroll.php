@@ -1,36 +1,4 @@
 <?php
-function empty_inputbox()
-{
-    $employee_no = "";
-    $department = "";
-    $firstname = "";
-    $mname = "";
-    $surname = "";
-    $civil_status = "";
-    $designation = "";
-    $qualified_dependents = "";
-    $paydate = "";
-    $emp_status = "";
-    //decleration of variables where inputs are stored
-    $basic_rate_hour = "";
-    $basic_num_hours_cutoff = "";
-    $hono_rate_hour = "";
-    $hono_num_hours_cutoff = "";
-    $other_rate_hour = "";
-    $other_num_hours_cutoff = "";
-    $sss_contri = 0.00;
-    $philH_contri = 0.00;
-    $pagibig_contri = 100.00;
-    $tax_contri = 0.00;
-    $sss_loan = "";
-    $pagibig_loan = "";
-    $fs_deposit = "";
-    $fs_loan = "";
-    $salary_loan = "";
-    $other_loans = "";
-}
-
-
 
 //decleration of variables with fix data value for employee info
 $employee_no = "";
@@ -87,7 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $salary_loan = $_POST["salary_loan"];
         $other_loans = $_POST["other_loans"];
         $qualified_dependents = $_POST["qualified_dependents"];
-        $employee_no = $_POST['employee_no'];
 
         $basic_income_cutoff = $basic_rate_hour * $basic_num_hours_cutoff;
         $hono_income_cutoff = $hono_rate_hour * $hono_num_hours_cutoff;
@@ -269,6 +236,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $salary_loan = $_POST["salary_loan"];
         $other_loans = $_POST["other_loans"];
         $qualified_dependents = $_POST["qualified_dependents"];
+        $employee_no = $_POST['employee_no'];
 
         $basic_income_cutoff = $basic_rate_hour * $basic_num_hours_cutoff;
         $hono_income_cutoff = $hono_rate_hour * $hono_num_hours_cutoff;
@@ -457,15 +425,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // to press NEW button
     } else if (isset($_POST["new"])) {
-        empty_inputbox();
+        header("Refresh:0; url=Payroll_page.php");
     } else if (isset($_POST["print_preview"])) {
         // to press Print Payslip button
     } else if (isset($_POST["print_payslip"])) {
         // to press Cancel button
     } else if (isset($_POST["cancel"])) {
-        empty_inputbox();
         // to press Close button
     } else if (isset($_POST["close"])) {
-        header('Location: ' . '/admin_page.php');
+        header("Refresh:0; url=Admin_page.php");
     }
 }
