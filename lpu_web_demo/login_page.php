@@ -14,9 +14,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	$result = mysqli_fetch_assoc($conn->query($sql));
 
 	if ($result['count'] > 0 && $user != "" && $pass != "") {
-		$sql = "SELECT * FROM `personal_infotbl`;";
-		$result = $conn->query($sql);
-		header("Refresh:0; url=Admin_page.php");
+		$sql = "SELECT * FROM user_accounttbl WHERE username = '$user' AND password = '$pass';";
+		$result = mysqli_fetch_assoc($conn->query($sql));
+		session_start();
+		$_SESSION['privilege'] = $result['privilege'];
+		$_SESSION['username'] = $result['username'];
+		$_SESSION['employee_no'] = $result['employee_no'];
+		
+		if($_SESSION['privilege'] == 1){
+			header("Refresh:0; url=Admin_page.php");
+		}elseif($_SESSION['privilege'] == 2){
+			header("Refresh:0; url=Payroll_page.php");
+		}elseif($_SESSION['privilege'] == 3){
+			header("Refresh:0; url=Shop.php");
+		}
+		
 		exit();
 	} else {
 		echo "<script>";
@@ -38,12 +50,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	<link rel="stylesheet" href="css/global.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+	<link rel="icon" type="image/png" href="Images/Assets/favicon.ico">
 </head>
 
 <body>
 
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('login_page_assets/images/bg-01.jpg');">
+		<div class="container-login100" style="background-image: url('Images/bg.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">
 					Account Login

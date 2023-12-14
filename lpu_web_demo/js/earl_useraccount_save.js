@@ -10,6 +10,7 @@ function areAllValuesFilled(obj) {
 }
 var isMatching = true;
 $(document).ready(function () {
+
   $("#password, #confirm_password").on("keyup", function () {
     if ($("#password").val() == $("#confirm_password").val()) {
       $("#message").html("Matching").css("color", "green");

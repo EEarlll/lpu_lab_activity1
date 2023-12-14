@@ -9,7 +9,6 @@ try {
         $conn = OpenCon();
 
         // save employee record to database
-        // Update query for incometbl
         $sql1 = "DELETE FROM incometbl WHERE employee_no = '$employee_number'";
 
         $conn->query($sql1);

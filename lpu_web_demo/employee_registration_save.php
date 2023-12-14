@@ -1,5 +1,7 @@
 <?php
 include 'process/earl_registration_fill.php';
+include 'process/session_check.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +22,13 @@ include 'process/earl_registration_fill.php';
     <script src="js/emp_info_save.js"></script>
     <link rel="stylesheet" href="css/employee_registration.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="icon" type="image/png" href="Images/Assets/favicon.ico">
 </head>
 
 <body>
     <div class="d-flex">
         <div class="vh-100 sticky-top " style="width: 320px; background-color:#111927">
-            <nav class="navbar my-5 mx-2">
+            <nav class="navbar my-5 mx-4">
                 <a class="navbar-brand text-white font-weight-bold" href="#">
                     <img src="images/logo.png" width="40" height="40" class="d-inline-block align-middle" alt="">
                     Earl's Choice Enterprise
@@ -46,7 +49,7 @@ include 'process/earl_registration_fill.php';
                     </a>
                 </li>
                 <li>
-                    <a href="employee_registration_save.php" class="nav-link text-white mb-4" style="background-color: #343b47;border-radius: 5px;">
+                    <a href="employee_registration_save.php" class="nav-link text-white mb-4 <?php echo $user_privilege == 1 ? '' : 'd-none' ?>" style="background-color: #343b47;border-radius: 5px;">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" width="25" height="25" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                             <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z" />
                         </svg>
@@ -55,7 +58,7 @@ include 'process/earl_registration_fill.php';
                     </a>
                 </li>
                 <li>
-                    <a href="employee_report.php" class="nav-link text-white mb-4">
+                    <a href="employee_report.php" class="nav-link text-white mb-4 <?php echo $user_privilege == 1 ? '' : 'd-none' ?>">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" width="25" height="25" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
                             <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2Zm-3 15H4.828a1 1 0 0 1 0-2h6.238a1 1 0 0 1 0 2Zm0-4H4.828a1 1 0 0 1 0-2h6.238a1 1 0 1 1 0 2Z" />
                             <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
@@ -64,7 +67,7 @@ include 'process/earl_registration_fill.php';
                     </a>
                 </li>
                 <li>
-                    <a href="Payroll_page.php" class="nav-link text-white mb-4">
+                    <a href="Payroll_page.php" class="nav-link text-white mb-4 <?php echo ($user_privilege == 1 || $user_privilege == 2) ? '' : 'd-none' ?>">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" width="25" height="25" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z" />
                             <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z" />
@@ -73,7 +76,7 @@ include 'process/earl_registration_fill.php';
                     </a>
                 </li>
                 <li>
-                    <a href="payroll_report.php" class="nav-link text-white  mb-4">
+                    <a href="payroll_report.php" class="nav-link text-white  mb-4 <?php echo ($user_privilege == 1 || $user_privilege == 2) ? '' : 'd-none' ?>">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" width="25" height="25" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                             <path d="M16 0H2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 17h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Z" />
                         </svg>
@@ -81,7 +84,7 @@ include 'process/earl_registration_fill.php';
                     </a>
                 </li>
                 <li>
-                    <a href="Shop.php" class="nav-link text-white mb-4">
+                    <a href="Shop.php" class="nav-link text-white mb-4 <?php echo ($user_privilege == 1 || $user_privilege == 3) ? '' : 'd-none' ?>">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" width="25" height="25" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.876.517A1 1 0 0 0 17 0H3a1 1 0 0 0-.871.508C1.63 1.393 0 5.385 0 6.75a3.236 3.236 0 0 0 1 2.336V19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9.044a3.242 3.242 0 0 0 1-2.294c0-1.283-1.626-5.33-2.124-6.233ZM15.5 14.7a.8.8 0 0 1-.8.8h-2.4a.8.8 0 0 1-.8-.8v-2.4a.8.8 0 0 1 .8-.8h2.4a.8.8 0 0 1 .8.8v2.4ZM16.75 8a1.252 1.252 0 0 1-1.25-1.25 1 1 0 0 0-2 0 1.25 1.25 0 0 1-2.5 0 1 1 0 0 0-2 0 1.25 1.25 0 0 1-2.5 0 1 1 0 0 0-2 0A1.252 1.252 0 0 1 3.25 8 1.266 1.266 0 0 1 2 6.75C2.306 5.1 2.841 3.501 3.591 2H16.4A19.015 19.015 0 0 1 18 6.75 1.337 1.337 0 0 1 16.75 8Z" />
                         </svg>
@@ -89,7 +92,7 @@ include 'process/earl_registration_fill.php';
                     </a>
                 </li>
                 <li>
-                    <a href="pos_sales_report.php" class="nav-link text-white mb-4">
+                    <a href="pos_sales_report.php" class="nav-link text-white mb-4 <?php echo ($user_privilege == 1 || $user_privilege == 3) ? '' : 'd-none' ?>">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" width="25" height="25" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                             <path d="M15.045.007 9.31 0a1.965 1.965 0 0 0-1.4.585L.58 7.979a2 2 0 0 0 0 2.805l6.573 6.631a1.956 1.956 0 0 0 1.4.585 1.965 1.965 0 0 0 1.4-.585l7.409-7.477A2 2 0 0 0 18 8.479v-5.5A2.972 2.972 0 0 0 15.045.007Zm-2.452 6.438a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
                         </svg>
@@ -97,19 +100,11 @@ include 'process/earl_registration_fill.php';
                     </a>
                 </li>
                 <li>
-                    <a href="user_account_page.php" class="nav-link text-white mb-4">
+                    <a href="user_account_page.php" class="nav-link text-white mb-4 <?php echo ($user_privilege == 1) ? '' : 'd-none' ?>">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" width="25" height="25" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
                         </svg>
                         User Account Report
-                    </a>
-                </li>
-                <li>
-                    <a href="user_account.php" class="nav-link text-white mb-4">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" width="25" height='25' aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                            <path d="M6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm-1.391 7.361.707-3.535a3 3 0 0 1 .82-1.533L7.929 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h4.259a2.975 2.975 0 0 1-.15-1.639ZM8.05 17.95a1 1 0 0 1-.981-1.2l.708-3.536a1 1 0 0 1 .274-.511l6.363-6.364a3.007 3.007 0 0 1 4.243 0 3.007 3.007 0 0 1 0 4.243l-6.365 6.363a1 1 0 0 1-.511.274l-3.536.708a1.07 1.07 0 0 1-.195.023Z" />
-                        </svg>
-                        User Account
                     </a>
                 </li>
                 <li>
