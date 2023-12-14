@@ -100,7 +100,7 @@ include 'process/session_check.php';
                     </a>
                 </li>
                 <li>
-                    <a href="login_page.php" class="nav-link text-white  mb-4">
+                    <a href="logout_page.php" class="nav-link text-white  mb-4">
                         <svg fill="#ffffff" width="25" height="25" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 471.2 471.2" xml:space="preserve" stroke="#ffffff">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

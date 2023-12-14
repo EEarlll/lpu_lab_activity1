@@ -1,4 +1,5 @@
 <?php
+
 include 'process/db_connection.php';
 $conn = OpenCon();
 $sql = "SELECT * FROM `user_accounttbl`;";
