@@ -237,17 +237,6 @@ if (isset($_GET['id']) && $_SERVER["REQUEST_METHOD"] == "POST") {
         $sss_loan
         + $pagibig_loan + $fs_deposit + $fs_loan + $salary_loan + $other_loans;
     $net_income = $gross_income - $total_deduct;
-
-    $_SESSION['basic_income_cutoff'] = $basic_income_cutoff;
-    $_SESSION['hono_income_cutoff'] = $hono_income_cutoff;
-    $_SESSION['other_income_cutoff'] = $other_income_cutoff;
-    $_SESSION['sss_contri'] = $sss_contri;
-    $_SESSION['philH_contri'] = $philH_contri;
-    $_SESSION['pagibig_contri'] = $pagibig_contri;
-    $_SESSION['tax_contri'] = $tax_contri;
-    $_SESSION['total_deduct'] = $total_deduct;
-    $_SESSION['gross_income'] = $gross_income;
-    $_SESSION['net_income'] = $net_income;
 }
 
 

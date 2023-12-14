@@ -9,7 +9,7 @@ $result = $conn->query($sql);
 $sql2 = "SELECT id FROM `personal_infotbl`;";
 $result2 = mysqli_fetch_all($conn->query($sql2));
 
-$sql3 = "SELECT COUNT(privilege) AS privilege_count FROM user_accounttbl GROUP BY privilege WITH ROLLUP;";
+$sql3 = "SELECT COUNT(privilege) AS privilege_count FROM user_accounttbl WHERE privilege != 0 GROUP BY privilege WITH ROLLUP;";
 $result3 = mysqli_fetch_all($conn->query($sql3));
 ?>
 <!DOCTYPE html>
@@ -184,7 +184,7 @@ $result3 = mysqli_fetch_all($conn->query($sql3));
                         <div class="bg-white rounded p-3">
                             <div>
                                 <h5 class="text-center">Number of Privilege Users</h5>
-                                <h5 class="text-center"><?php echo $result3[4][0] ?></h5>
+                                <h5 class="text-center"><?php echo $result3[3][0] ?></h5>
                                 <canvas id="chart2" height="100"></canvas>
                             </div>
                         </div>
@@ -304,7 +304,7 @@ $result3 = mysqli_fetch_all($conn->query($sql3));
         data: {
             labels: ["Administrator", "Cashier", "Accountant"],
             datasets: [{
-                data: [result3['1'], result3['3'], result3['2']],
+                data: [result3['0'], result3['2'], result3['1']],
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)',

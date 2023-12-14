@@ -39,7 +39,7 @@ $total_deduct = "";
 
 session_start();
 //getting input from textbox and place it inside the variable by calling the name of the inputs
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_GET['id'])) {
     // to press Calculate Gross Income button
     if (isset($_POST["calculate_gross_income"])) {
         $basic_rate_hour = $_POST["basic_rate_hour"];
