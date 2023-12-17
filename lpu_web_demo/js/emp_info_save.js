@@ -101,6 +101,6 @@ $(document).ready(function () {
 
   $("#cancelbtn").click(function (e) {
     e.preventDefault();
-    window.location.href = "admin_page.php";
+    window.location.href = "Admin_page.php";
   });
 });
